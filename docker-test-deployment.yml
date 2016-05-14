@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: docker-test
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: docker-test
+        version: v0
+    spec:
+      containers:
+      - name: docker-test
+        image: superdecimal/docker-test:latest
+        ports:
+        - containerPort: 3000
